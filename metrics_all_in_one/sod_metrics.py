@@ -10,7 +10,6 @@ import os
 import cv2
 from tqdm import tqdm
 
-
 from py_sod_metrics import MAE, Emeasure, Fmeasure, Smeasure, WeightedFmeasure
 
 class SODMetricsNative:
