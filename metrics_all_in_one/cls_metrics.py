@@ -10,8 +10,10 @@ import torch
 from ..engine.utils.distributed import reduce_tensor
 from ..transforms.img_process_torch import get_boundary_torch
 import torch.nn.functional as nnF
+from skimage.morphology import square, opening
+import cv2
 
-
+#
 def torch_nanmean(x):
     num = torch.where(torch.isnan(x), torch.full_like(x, 0), torch.full_like(x, 1)).sum()
     value = torch.where(torch.isnan(x), torch.full_like(x, 0), x).sum()
@@ -29,6 +31,18 @@ def iou(gt, pred):
     union = union.sum(dim=-1)
     iou_value = (inter + 1e-6) / (union + 1e-6)
     return iou_value
+
+
+def get_slim_structure(mask, k_size=9):
+    mask_open = opening(mask, square(k_size))
+    mask_slim_structure = cv2.absdiff(mask, mask_open)
+    return mask_slim_structure
+
+
+def slim_structure_iou(gt, pred):
+    gt_slim = get_slim_structure(gt)
+    pred_slim = get_slim_structure(pred)
+    return iou(gt_slim, pred_slim)
 
 
 # 广义非离散二类分割metrics
