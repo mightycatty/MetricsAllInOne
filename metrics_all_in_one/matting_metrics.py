@@ -1,7 +1,7 @@
 # @Time    : 2022/7/18 7:23 PM
 # @Author  : Heshuai
 # @Email   : heshuai.sec@gmail.com
-"""
+"""metrics for matting
 Modified from https://github.com/PeterL1n/RobustVideoMatting/blob/17d1774b032fd503bfe53c57d295db719f9e3da1/evaluation/evaluate_lr.py
 """
 import numpy as np

@@ -1,7 +1,7 @@
 # @Time    : 2022/7/18 4:23 PM
 # @Author  : Heshuai
 # @Email   : heshuai.sec@gmail.com
-'''
+'''metrics for salient object segmentation
 requirement:
     pip install pysodmetrics
 '''
@@ -13,6 +13,7 @@ from py_sod_metrics import MAE, Emeasure, Fmeasure, Smeasure, WeightedFmeasure
 import torch.distributed as torch_dist
 import numpy as np
 from metric_interface import MetricsInterface
+
 __all__ = ['SODMetricsTorch', 'SODMetricsPy']
 
 

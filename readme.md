@@ -3,7 +3,8 @@
 Metrics for:
 - salient object segmentation
 - image matting
-- segmentation
+- multi-classes segmentation
+- foreground background segmentation
 
 
 ##Usage
